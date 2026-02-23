@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro | AulaNexa Cursos Online</title>
+  </head>
+  <body>
+    <header>
+      <h1>Registro de Estudiante</h1>
+      <p>
+        Crea tu cuenta en AulaNexa para acceder a rutas de aprendizaje, clases
+        en vivo y certificaciones.
+      </p>
+    </header>
+
+    <main>
+      <form action="/registro" method="post">
+        <!-- Datos personales -->
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <label for="nombre">Nombre *</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej: Camila"
+            autocomplete="given-name"
+            required
+            autofocus
+          />
+
+          <label for="apellido">Apellido *</label>
+          <input
+            type="text"
+            id="apellido"
+            name="apellido"
+            placeholder="Ej: Rodríguez"
+            autocomplete="family-name"
+            required
+          />
+
+          <label for="correo">Correo electrónico *</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Ej: camila.rodriguez@email.com"
+            autocomplete="email"
+            required
+          />
+
+          <label for="telefono">Teléfono *</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="Ej: +57 300 123 4567"
+            autocomplete="tel"
+            pattern="^\+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{4}$"
+            aria-describedby="ayuda-telefono"
+            required
+          />
+          <p id="ayuda-telefono">Formato requerido: +57 300 123 4567</p>
+
+          <label for="fecha-nacimiento">Fecha de nacimiento *</label>
+          <input
+            type="date"
+            id="fecha-nacimiento"
+            name="fecha_nacimiento"
+            autocomplete="bday"
+            min="1950-01-01"
+            max="2009-12-31"
+            required
+          />
+
+          <p id="texto-genero">Género *</p>
+          <input
+            type="radio"
+            id="genero-f"
+            name="genero"
+            value="femenino"
+            aria-describedby="texto-genero"
+            required
+          />
+          <label for="genero-f">Femenino</label>
+
+          <input type="radio" id="genero-m" name="genero" value="masculino" />
+          <label for="genero-m">Masculino</label>
+
+          <input type="radio" id="genero-nb" name="genero" value="no-binario" />
+          <label for="genero-nb">No binario</label>
+        </fieldset>
+
+        <!-- Cuenta y seguridad -->
+        <fieldset>
+          <legend>Cuenta y seguridad</legend>
+
+          <label for="usuario">Nombre de usuario *</label>
+          <input
+            type="text"
+            id="usuario"
+            name="usuario"
+            placeholder="Ej: camila_dev"
+            autocomplete="username"
+            minlength="4"
+            maxlength="20"
+            required
+          />
+
+          <label for="contrasena">Contraseña *</label>
+          <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            placeholder="Mínimo 8 caracteres"
+            autocomplete="new-password"
+            minlength="8"
+            aria-describedby="ayuda-clave"
+            required
+          />
+          <p id="ayuda-clave">Incluye al menos 8 caracteres.</p>
+
+          <label for="confirmar-contrasena">Confirmar contraseña *</label>
+          <input
+            type="password"
+            id="confirmar-contrasena"
+            name="confirmar_contrasena"
+            placeholder="Repite tu contraseña"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          />
+        </fieldset>
+
+        <!-- Perfil académico -->
+        <fieldset>
+          <legend>Perfil académico</legend>
+
+          <label for="area">Área de interés *</label>
+          <select id="area" name="area" required>
+            <option value="">Selecciona un área</option>
+            <option value="desarrollo-web">Desarrollo Web</option>
+            <option value="analisis-datos">Análisis de Datos</option>
+            <option value="diseno-ux-ui">Diseño UX/UI</option>
+            <option value="marketing-digital">Marketing Digital</option>
+          </select>
+
+          <label for="experiencia"
+            >Años de experiencia estudiando en línea *</label
+          >
+          <input
+            type="number"
+            id="experiencia"
+            name="experiencia"
+            placeholder="Ej: 2"
+            min="0"
+            max="30"
+            required
+          />
+
+          <label for="sitio-web">Portafolio o sitio web</label>
+          <input
+            type="url"
+            id="sitio-web"
+            name="sitio_web"
+            placeholder="Ej: https://miportafolio.dev"
+            autocomplete="url"
+          />
+
+          <label for="bio">Objetivo de aprendizaje</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="5"
+            maxlength="500"
+            placeholder="Cuéntanos qué habilidades quieres desarrollar en los próximos 6 meses."
+            aria-describedby="ayuda-bio"
+          ></textarea>
+          <p id="ayuda-bio">Máximo 500 caracteres.</p>
+        </fieldset>
+
+        <!-- Consentimientos -->
+        <fieldset>
+          <legend>Consentimientos</legend>
+
+          <input type="checkbox" id="boletin" name="boletin" value="si" />
+          <label for="boletin"
+            >Deseo recibir novedades de cursos y eventos</label
+          >
+
+          <input
+            type="checkbox"
+            id="terminos"
+            name="terminos"
+            value="si"
+            required
+          />
+          <label for="terminos">Acepto los términos y condiciones *</label>
+        </fieldset>
+
+        <!-- Acciones -->
+        <button type="submit">Crear cuenta</button>
+        <button type="reset">Limpiar formulario</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 AulaNexa Cursos Online. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
